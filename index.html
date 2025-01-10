@@ -10,7 +10,7 @@
     <title>Communitrics - Terms and Conditions & Privacy Policy</title>
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -29,140 +29,250 @@
       :root {
         --primary-color: #ff3b3f;
         --secondary-color: #ff6b6e;
-        --background-gradient: linear-gradient(
-          135deg,
-          #1e1e1e 0%,
-          #121212 100%
-        );
-        --section-bg: rgba(30, 30, 30, 0.75);
-        --text-color: #e0e0e0;
-        --header-bg: rgba(30, 30, 30, 0.9);
-        --shadow-color: rgba(0, 0, 0, 0.25);
+        --background-dark: #121212;
+        --background-light: #f5f5f5;
+        --text-dark: #e0e0e0;
+        --text-light: #333;
+        --header-height: 70px;
+        --sidebar-width: 280px;
+        --transition-speed: 0.3s;
       }
 
-      body.light-mode {
-        --primary-color: #ff3b3f;
-        --secondary-color: #ff6b6e;
-        --background-gradient: linear-gradient(
-          135deg,
-          #f5f5f5 0%,
-          #e4e4e4 100%
-        );
-        --section-bg: rgba(255, 255, 255, 0.8);
-        --text-color: #333;
-        --header-bg: rgba(255, 255, 255, 0.9);
-        --shadow-color: rgba(0, 0, 0, 0.1);
-      }
-
-      html,
-      body {
+      * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
       }
 
       body {
         font-family: "Inter", sans-serif;
-        background: var(--background-gradient);
-        color: var(--text-color);
+        background: var(--background-dark);
+        color: var(--text-dark);
         line-height: 1.6;
-        transition: background 0.5s, color 0.5s;
+        transition: background var(--transition-speed),
+          color var(--transition-speed);
+        min-height: 100vh;
       }
 
-      a {
-        color: var(--primary-color);
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-      a:hover {
-        color: var(--secondary-color);
+      body.light-mode {
+        background: var(--background-light);
+        color: var(--text-light);
       }
 
-      header {
-        background-color: var(--header-bg);
-        backdrop-filter: blur(5px);
-        position: sticky;
+      .header {
+        position: fixed;
         top: 0;
+        left: 0;
+        right: 0;
+        height: var(--header-height);
+        background: rgba(18, 18, 18, 0.95);
+        backdrop-filter: blur(10px);
         z-index: 1000;
-        padding: 15px 20px;
-        box-shadow: 0 2px 12px var(--shadow-color);
+        transition: background var(--transition-speed);
+      }
+
+      .light-mode .header {
+        background: rgba(245, 245, 245, 0.95);
       }
 
       .header-content {
         max-width: 1200px;
         margin: 0 auto;
+        padding: 0 20px;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
       }
 
-      .header-content h1 {
+      .logo {
         font-family: "Poppins", sans-serif;
-        font-size: 2rem;
-        margin: 0;
+        font-size: 1.8rem;
+        font-weight: 700;
         color: var(--primary-color);
-        letter-spacing: 0.5px;
+        text-decoration: none;
       }
 
-      nav ul {
-        list-style: none;
+      .nav-menu {
         display: flex;
-        margin: 0;
-        padding: 0;
         gap: 20px;
+        align-items: center;
       }
 
-      nav li {
-        margin: 0;
-      }
-
-      nav li a {
-        font-weight: 600;
+      .nav-link {
+        color: var(--text-dark);
+        text-decoration: none;
+        font-weight: 500;
         padding: 8px 16px;
-        border-radius: 4px;
-        color: var(--text-color);
-        transition: background-color 0.3s, color 0.3s;
+        border-radius: 6px;
+        transition: background var(--transition-speed),
+          color var(--transition-speed);
       }
 
-      nav li a.active,
-      nav li a:hover {
-        color: var(--secondary-color);
-        background-color: rgba(255, 255, 255, 0.06);
+      .light-mode .nav-link {
+        color: var(--text-light);
+      }
+
+      .nav-link.active,
+      .nav-link:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .nav-link.active {
+        border-bottom: 2px solid var(--secondary-color);
+        font-weight: 700;
       }
 
       .btn-invite {
-        background-color: var(--primary-color);
-        border: none;
-        padding: 10px 16px;
+        background: var(--primary-color);
+        color: white !important;
+        padding: 10px 20px;
         border-radius: 8px;
-        color: #fff;
-        font-family: "Poppins", sans-serif;
         font-weight: 600;
-        cursor: pointer;
-        transition: transform 0.2s, background-color 0.3s;
+        transition: transform 0.2s, background-color var(--transition-speed);
       }
+
       .btn-invite:hover {
-        transform: scale(1.03);
-        background-color: #d5353a;
-        color: #fff;
+        background: var(--secondary-color);
+        transform: translateY(-1px);
+      }
+
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        margin-left: 20px;
+      }
+
+      .hamburger span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background: var(--text-dark);
+        transition: all var(--transition-speed);
+      }
+
+      .light-mode .hamburger span {
+        background: var(--text-light);
+      }
+
+      .hamburger span:nth-child(1) {
+        top: 0;
+      }
+      .hamburger span:nth-child(2) {
+        top: 9px;
+      }
+      .hamburger span:nth-child(3) {
+        top: 18px;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: var(--sidebar-width);
+        height: 100vh;
+        background: rgba(18, 18, 18, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 80px 20px 20px;
+        transition: right var(--transition-speed);
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .light-mode .sidebar {
+        background: rgba(245, 245, 245, 0.98);
+      }
+
+      .sidebar.active {
+        right: 0;
+      }
+
+      .sidebar .nav-menu {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .sidebar .nav-link {
+        width: 100%;
+        padding: 12px 16px;
+      }
+
+      .sidebar-buttons {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .sidebar-buttons button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        background: var(--primary-color);
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background var(--transition-speed), transform 0.2s;
+      }
+
+      .sidebar-buttons button:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+      }
+
+      .sidebar-buttons button:focus {
+        outline: 2px dashed var(--secondary-color);
+        outline-offset: 2px;
+      }
+
+      .sidebar-buttons button i {
+        font-size: 1.2rem;
       }
 
       main {
         max-width: 900px;
-        margin: 40px auto;
+        margin: calc(var(--header-height) + 40px) auto 40px;
         padding: 0 20px;
       }
 
       .content-section {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 30px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         display: none;
         opacity: 0;
         transform: translateY(20px);
         transition: opacity 0.4s ease, transform 0.4s ease;
-        background-color: var(--section-bg);
-        border-radius: 10px;
-        padding: 30px;
-        margin-bottom: 40px;
-        box-shadow: 0 4px 8px var(--shadow-color);
       }
+
+      .light-mode .content-section {
+        background: rgba(255, 255, 255, 0.8);
+      }
+
       .content-section.active {
         display: block;
         opacity: 1;
@@ -172,41 +282,48 @@
       h2 {
         font-family: "Poppins", sans-serif;
         color: var(--primary-color);
-        margin-bottom: 20px;
-        font-size: 2.1rem;
+        font-size: 2rem;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
         border-bottom: 2px solid var(--primary-color);
-        padding-bottom: 8px;
-        letter-spacing: 0.5px;
       }
 
       h3 {
         color: var(--secondary-color);
         font-size: 1.3rem;
-        margin-top: 30px;
-        margin-bottom: 15px;
+        margin: 30px 0 15px;
       }
 
-      p,
+      p {
+        margin-bottom: 1rem;
+      }
+
+      .info-box {
+        background: rgba(255, 255, 255, 0.05);
+        border-left: 4px solid var(--primary-color);
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+      }
+
+      .light-mode .info-box {
+        background: rgba(0, 0, 0, 0.05);
+      }
+
       ul,
       ol {
-        margin-bottom: 20px;
-        font-size: 1rem;
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
       }
-      ul,
-      ol {
-        padding-left: 25px;
-      }
+
       li {
-        margin-bottom: 10px;
+        margin-bottom: 0.5rem;
       }
 
       .highlight {
-        background-color: rgba(255, 59, 63, 0.15);
-        padding: 2px 5px;
+        background: rgba(255, 59, 63, 0.15);
+        padding: 2px 6px;
         border-radius: 4px;
-      }
-      body.light-mode .highlight {
-        background-color: rgba(255, 59, 63, 0.25);
       }
 
       .small-text {
@@ -214,155 +331,276 @@
         color: #999;
       }
 
-      .info-box {
-        background-color: rgba(255, 255, 255, 0.05);
-        border-left: 5px solid var(--primary-color);
-        padding: 20px;
-        margin: 20px 0;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px var(--shadow-color);
-      }
-      body.light-mode .info-box {
-        background-color: rgba(0, 0, 0, 0.05);
-      }
-
-      footer {
-        background-color: var(--header-bg);
-        backdrop-filter: blur(4px);
-        box-shadow: 0 -2px 12px var(--shadow-color);
+      #scrollToTopBtn,
+      #toggleThemeBtn {
         position: fixed;
-        bottom: 0;
-        width: 100%;
-        z-index: 999;
-        transition: bottom 0.3s;
-        padding: 12px 20px;
-      }
-      footer p {
-        font-family: "Poppins", sans-serif;
-        font-size: 0.95rem;
-        font-weight: 600;
-        margin: 0;
-        color: var(--text-color);
-        text-align: center;
-      }
-      .footer-link {
-        color: var(--primary-color);
-        text-decoration: none;
-      }
-      .footer-link:hover {
-        color: var(--secondary-color);
-      }
-
-      #scrollToTopBtn {
-        position: fixed;
-        bottom: 70px;
         right: 20px;
-        z-index: 1000;
-        background-color: var(--primary-color);
-        color: #fff;
-        border: none;
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
+        background: var(--primary-color);
+        color: white;
+        border: none;
         cursor: pointer;
-        box-shadow: 0 2px 8px var(--shadow-color);
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.3s, transform 0.3s, background-color 0.3s;
-        font-size: 24px;
         display: flex;
         align-items: center;
         justify-content: center;
-      }
-      #scrollToTopBtn.show {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      #scrollToTopBtn.hide {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      #scrollToTopBtn:hover {
-        background-color: var(--secondary-color);
+        transition: all var(--transition-speed);
+        z-index: 998;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
       }
 
       #toggleThemeBtn {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1001;
-        background-color: var(--primary-color);
-        color: #fff;
-        border: none;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        cursor: pointer;
-        box-shadow: 0 2px 8px var(--shadow-color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        transition: background-color 0.3s, transform 0.2s;
+        bottom: 80px;
       }
+
+      #scrollToTopBtn {
+        bottom: 20px;
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
+      }
+
+      #scrollToTopBtn.show {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+      }
+
+      #scrollToTopBtn:hover,
       #toggleThemeBtn:hover {
-        background-color: var(--secondary-color);
-        transform: scale(1.05);
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+      }
+
+      footer {
+        background: rgba(18, 18, 18, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 15px 20px;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        transition: all var(--transition-speed);
+      }
+
+      .light-mode footer {
+        background: rgba(245, 245, 245, 0.95);
+      }
+
+      footer p {
+        margin: 0;
+        color: var(--text-dark);
+      }
+
+      .light-mode footer p {
+        color: var(--text-light);
+      }
+
+      .footer-link {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+
+      .footer-link:hover {
+        color: var(--secondary-color);
+        text-decoration: underline;
       }
 
       @media (max-width: 768px) {
-        header {
+        .header-content .nav-menu {
+          display: none;
+        }
+
+        .hamburger {
+          display: block;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+        }
+
+        #toggleThemeBtn {
+          bottom: auto;
+          top: 15px;
+        }
+
+        #scrollToTopBtn,
+        #toggleThemeBtn {
+          display: none;
+        }
+
+        .sidebar-buttons {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          margin-top: 30px;
+        }
+
+        .sidebar-buttons button {
+          width: 100%;
           padding: 10px;
+          border: none;
+          border-radius: 6px;
+          background: var(--primary-color);
+          color: white;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background var(--transition-speed), transform 0.2s;
         }
+
+        .sidebar-buttons button:hover {
+          background: var(--secondary-color);
+          transform: translateY(-2px);
+        }
+
+        .sidebar-buttons button:focus {
+          outline: 2px dashed var(--secondary-color);
+          outline-offset: 2px;
+        }
+
+        .sidebar-buttons button i {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .sidebar {
+          display: none;
+        }
+
+        #scrollToTopBtn,
+        #toggleThemeBtn {
+          position: fixed;
+          right: 20px;
+          z-index: 1001;
+          background-color: var(--primary-color);
+          color: #fff;
+          border: none;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          cursor: pointer;
+          box-shadow: 0 2px 8px var(--shadow-color);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 20px;
+          transition: background-color 0.3s, transform 0.2s, opacity 0.3s;
+        }
+
+        #scrollToTopBtn {
+          bottom: 80px;
+        }
+
+        #toggleThemeBtn {
+          bottom: 20px;
+        }
+
+        #toggleThemeBtn:hover {
+          background-color: var(--secondary-color);
+          transform: scale(1.05);
+        }
+      }
+
+      @media (max-width: 480px) {
         .header-content {
-          flex-wrap: wrap;
-          gap: 10px;
+          padding: 0 15px;
         }
-        .header-content h1 {
-          font-size: 1.6rem;
-        }
-        nav ul {
-          flex-direction: row;
-          gap: 10px;
-        }
-        .btn-invite {
-          margin-top: 8px;
-        }
+
         main {
-          margin: 20px auto;
+          padding: 0 15px;
         }
+
+        .content-section {
+          padding: 20px;
+        }
+
+        h2 {
+          font-size: 1.8rem;
+        }
+
+        #toggleThemeBtn,
+        #scrollToTopBtn {
+          right: 15px;
+        }
+      }
+
+      .content-section a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color var(--transition-speed),
+          text-decoration var(--transition-speed);
+      }
+
+      .content-section a:hover,
+      .content-section a:focus {
+        color: var(--secondary-color);
+        text-decoration: underline;
+      }
+
+      .content-section a:focus {
+        outline: 2px dashed var(--secondary-color);
+        outline-offset: 4px;
+      }
+
+      .content-section ul li i {
+        margin-right: 8px;
+        color: var(--primary-color);
       }
     </style>
   </head>
 
   <body>
-    <header>
+    <header class="header">
       <div class="header-content">
-        <h1>Communitrics</h1>
-        <nav>
-          <ul>
-            <li>
-              <a href="#" class="active" onclick="showSection(event, 'terms')"
-                >Terms of Service</a
-              >
-            </li>
-            <li>
-              <a href="#" onclick="showSection(event, 'privacy')"
-                >Privacy Policy</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://communitrics.com/invite"
-                target="_blank"
-                class="btn-invite"
-                >Add Communitrics</a
-              >
-            </li>
-          </ul>
+        <a href="#" class="logo">Communitrics</a>
+        <nav class="nav-menu">
+          <a href="#" class="nav-link active" data-section="terms"
+            >Terms of Service</a
+          >
+          <a href="#" class="nav-link" data-section="privacy">Privacy Policy</a>
+          <a
+            href="https://communitrics.com/invite"
+            target="_blank"
+            class="nav-link btn-invite"
+            >Add Communitrics</a
+          >
         </nav>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </header>
+
+    <div class="sidebar">
+      <nav class="nav-menu">
+        <a href="#" class="nav-link active" data-section="terms"
+          >Terms of Service</a
+        >
+        <a href="#" class="nav-link" data-section="privacy">Privacy Policy</a>
+        <a
+          href="https://communitrics.com/invite"
+          target="_blank"
+          class="nav-link btn-invite"
+          >Add Communitrics</a
+        >
+      </nav>
+      <div class="sidebar-buttons">
+        <button id="toggleThemeBtnSidebar" aria-label="Toggle theme">
+          <i class="fas fa-sun"></i>
+        </button>
+        <button id="scrollToTopBtnSidebar" aria-label="Scroll to top">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+      </div>
+    </div>
 
     <main>
       <section id="terms" class="content-section active">
@@ -608,73 +846,94 @@
       </section>
     </main>
 
+    <button id="scrollToTopBtn" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <button id="toggleThemeBtn" aria-label="Toggle theme">
+      <i class="fas fa-sun"></i>
+    </button>
+
     <footer>
       <p>
-        &copy; 2024
+        &copy; 2025
         <a href="https://communitrics.com/invite" class="footer-link"
           >Communitrics</a
         >. All rights reserved.
       </p>
     </footer>
 
-    <button id="scrollToTopBtn" onclick="scrollToTop()">
-      <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <button id="toggleThemeBtn">
-      <i class="fas fa-sun"></i>
-    </button>
-
     <script>
-      function showSection(event, sectionId) {
-        event.preventDefault();
-        const sections = document.querySelectorAll(".content-section");
-        sections.forEach((section) => section.classList.remove("active"));
+      const body = document.body;
+      const toggleThemeBtn = document.getElementById("toggleThemeBtn");
+      const toggleThemeBtnSidebar = document.getElementById(
+        "toggleThemeBtnSidebar"
+      );
+      const themeIcons = document.querySelectorAll(
+        'button[aria-label="Toggle theme"] i'
+      );
 
-        const section = document.getElementById(sectionId);
-        section.classList.add("active");
-
-        const navLinks = document.querySelectorAll("nav ul li a");
-        navLinks.forEach((link) => link.classList.remove("active"));
-
-        event.target.classList.add("active");
-        customSmoothScrollToTop();
-      }
-
-      function customSmoothScrollToTop() {
-        const scrollDuration = 400;
-        const scrollStep = -window.scrollY / (scrollDuration / 16.7);
-
-        function step() {
-          if (window.scrollY > 0) {
-            window.scrollBy(0, scrollStep);
-            requestAnimationFrame(step);
-          }
-        }
-        requestAnimationFrame(step);
-      }
-
-      let lastScrollTop = 0;
-      window.addEventListener("scroll", function () {
-        const footer = document.querySelector("footer");
-        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-        let scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop > 200) {
-          scrollToTopBtn.classList.add("show");
-          scrollToTopBtn.classList.remove("hide");
+      function updateThemeIcons() {
+        if (body.classList.contains("light-mode")) {
+          themeIcons.forEach((icon) => {
+            icon.className = "fas fa-moon";
+          });
         } else {
-          scrollToTopBtn.classList.add("hide");
+          themeIcons.forEach((icon) => {
+            icon.className = "fas fa-sun";
+          });
+        }
+      }
+
+      if (localStorage.getItem("theme") === "light") {
+        body.classList.add("light-mode");
+        updateThemeIcons();
+      }
+
+      function toggleTheme() {
+        body.classList.toggle("light-mode");
+        updateThemeIcons();
+        localStorage.setItem(
+          "theme",
+          body.classList.contains("light-mode") ? "light" : "dark"
+        );
+      }
+
+      toggleThemeBtn.addEventListener("click", toggleTheme);
+      toggleThemeBtnSidebar.addEventListener("click", toggleTheme);
+
+      const hamburger = document.querySelector(".hamburger");
+      const sidebar = document.querySelector(".sidebar");
+      const navLinks = document.querySelectorAll(".nav-link[data-section]");
+
+      hamburger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        hamburger.classList.toggle("active");
+        sidebar.classList.toggle("active");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (
+          !sidebar.contains(e.target) &&
+          !hamburger.contains(e.target) &&
+          sidebar.classList.contains("active")
+        ) {
+          hamburger.classList.remove("active");
+          sidebar.classList.remove("active");
+        }
+      });
+
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+      const scrollToTopBtnSidebar = document.getElementById(
+        "scrollToTopBtnSidebar"
+      );
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 200) {
+          scrollToTopBtn.classList.add("show");
+        } else {
           scrollToTopBtn.classList.remove("show");
         }
-
-        if (scrollTop > lastScrollTop) {
-          footer.style.bottom = "-60px";
-        } else {
-          footer.style.bottom = "0";
-        }
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
       });
 
       function scrollToTop() {
@@ -684,14 +943,45 @@
         });
       }
 
-      const toggleThemeBtn = document.getElementById("toggleThemeBtn");
-      toggleThemeBtn.addEventListener("click", () => {
-        document.body.classList.toggle("light-mode");
-        if (document.body.classList.contains("light-mode")) {
-          toggleThemeBtn.innerHTML = '<i class="fas fa-moon"></i>';
-        } else {
-          toggleThemeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+      scrollToTopBtn.addEventListener("click", scrollToTop);
+      scrollToTopBtnSidebar.addEventListener("click", scrollToTop);
+
+      const sections = document.querySelectorAll(".content-section");
+
+      function showSection(sectionId) {
+        sections.forEach((section) => {
+          if (section.id === sectionId) {
+            section.classList.add("active");
+          } else {
+            section.classList.remove("active");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          if (link.dataset.section === sectionId) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+
+        if (window.innerWidth <= 768) {
+          hamburger.classList.remove("active");
+          sidebar.classList.remove("active");
         }
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const section = link.dataset.section;
+          showSection(section);
+        });
       });
     </script>
   </body>
