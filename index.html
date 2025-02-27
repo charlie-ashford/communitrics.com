@@ -33,7 +33,7 @@
         --background-light: #f5f5f5;
         --text-dark: #e0e0e0;
         --text-light: #333;
-        
+
         --header-height: 70px;
         --sidebar-width: 280px;
         --transition-speed: 0.3s;
@@ -50,11 +50,12 @@
       }
 
       body {
-        font-family: "Inter", sans-serif;
+        font-family: 'Inter', sans-serif;
         background: var(--background-dark);
         color: var(--text-dark);
         line-height: 1.6;
-        transition: background var(--transition-speed), color var(--transition-speed);
+        transition: background var(--transition-speed),
+          color var(--transition-speed);
         min-height: 100vh;
       }
 
@@ -72,7 +73,8 @@
         background: rgba(18, 18, 18, 0.95);
         backdrop-filter: blur(10px);
         z-index: 1000;
-        transition: background var(--transition-speed), box-shadow var(--transition-speed);
+        transition: background var(--transition-speed),
+          box-shadow var(--transition-speed);
         box-shadow: 0 2px 8px var(--shadow-color);
       }
 
@@ -92,7 +94,7 @@
       }
 
       .logo {
-        font-family: "Poppins", sans-serif;
+        font-family: 'Poppins', sans-serif;
         font-size: 1.8rem;
         font-weight: 700;
         color: var(--primary-color);
@@ -144,7 +146,11 @@
       }
 
       .btn-invite {
-        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
         color: white !important;
         padding: 12px 24px;
         border-radius: 10px;
@@ -159,7 +165,11 @@
       }
 
       .btn-invite:hover {
-        background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        background: linear-gradient(
+          135deg,
+          var(--secondary-color),
+          var(--primary-color)
+        );
         transform: scale(1.05);
         box-shadow: 0 6px 15px rgba(255, 59, 63, 0.4);
       }
@@ -317,7 +327,7 @@
       }
 
       h2 {
-        font-family: "Poppins", sans-serif;
+        font-family: 'Poppins', sans-serif;
         color: var(--primary-color);
         font-size: 2rem;
         margin-bottom: 25px;
@@ -445,36 +455,120 @@
         text-decoration: underline;
       }
 
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--background-dark);
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 10px;
+        border: 3px solid var(--background-dark);
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--secondary-color);
+      }
+
+      /* Light mode scrollbar adjustments */
+      .light-mode::-webkit-scrollbar-track {
+        background: var(--background-light);
+      }
+
+      .light-mode::-webkit-scrollbar-thumb {
+        border: 3px solid var(--background-light);
+      }
+
+      /* Custom Text Selection */
+      ::selection {
+        background: var(--primary-color);
+        color: white;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+      }
+
+      .light-mode ::selection {
+        background: var(--secondary-color);
+      }
+
+      /* Smooth Scrolling for entire page */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Focus outline styling */
+      :focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 2px;
+      }
+
+      /* Link hover effects */
+      a {
+        transition: all 0.2s ease-in-out;
+      }
+
+      a:hover {
+        transform: translateY(-1px);
+      }
+
+      /* Button press effect */
+      button {
+        transition: transform 0.1s ease-in-out;
+      }
+
+      button:active {
+        transform: scale(0.95);
+      }
+
+      /* Content fade-in animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .content-section.active {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+
       @media (max-width: 768px) {
         .header-content .nav-menu {
           display: none;
         }
-        
+
         .hamburger {
           display: block;
         }
-        
+
         .logo {
           font-size: 1.5rem;
         }
-        
+
         #toggleThemeBtn {
           bottom: auto;
           top: 15px;
         }
-        
+
         #scrollToTopBtn,
         #toggleThemeBtn {
           display: none;
         }
-        
+
         .sidebar-buttons {
           display: flex;
           flex-direction: column;
           gap: 15px;
           margin-top: 30px;
         }
-        
+
         .sidebar-buttons button {
           width: 100%;
           padding: 10px;
@@ -488,17 +582,17 @@
           justify-content: center;
           transition: background var(--transition-speed), transform 0.2s;
         }
-        
+
         .sidebar-buttons button:hover {
           background: var(--secondary-color);
           transform: translateY(-2px);
         }
-        
+
         .sidebar-buttons button:focus {
           outline: 2px dashed var(--secondary-color);
           outline-offset: 2px;
         }
-        
+
         .sidebar-buttons button i {
           font-size: 1.2rem;
         }
@@ -508,7 +602,7 @@
         .sidebar {
           display: none;
         }
-        
+
         #scrollToTopBtn,
         #toggleThemeBtn {
           position: fixed;
@@ -528,15 +622,15 @@
           font-size: 20px;
           transition: background-color 0.3s, transform 0.2s, opacity 0.3s;
         }
-        
+
         #scrollToTopBtn {
           bottom: 80px;
         }
-        
+
         #toggleThemeBtn {
           bottom: 20px;
         }
-        
+
         #toggleThemeBtn:hover {
           background-color: var(--secondary-color);
           transform: scale(1.05);
@@ -547,19 +641,19 @@
         .header-content {
           padding: 0 15px;
         }
-        
+
         main {
           padding: 0 15px;
         }
-        
+
         .content-section {
           padding: 20px;
         }
-        
+
         h2 {
           font-size: 1.8rem;
         }
-        
+
         #toggleThemeBtn,
         #scrollToTopBtn {
           right: 15px;
@@ -570,7 +664,8 @@
         color: var(--primary-color);
         text-decoration: none;
         font-weight: 500;
-        transition: color var(--transition-speed), text-decoration var(--transition-speed);
+        transition: color var(--transition-speed),
+          text-decoration var(--transition-speed);
       }
 
       .content-section a:hover,
@@ -587,6 +682,10 @@
       .content-section ul li i {
         margin-right: 8px;
         color: var(--primary-color);
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
       }
     </style>
   </head>
@@ -901,119 +1000,119 @@
 
     <script>
       const body = document.body;
-      const toggleThemeBtn = document.getElementById("toggleThemeBtn");
+      const toggleThemeBtn = document.getElementById('toggleThemeBtn');
       const toggleThemeBtnSidebar = document.getElementById(
-        "toggleThemeBtnSidebar"
+        'toggleThemeBtnSidebar'
       );
       const themeIcons = document.querySelectorAll(
         'button[aria-label="Toggle theme"] i'
       );
 
       function updateThemeIcons() {
-        if (body.classList.contains("light-mode")) {
-          themeIcons.forEach((icon) => {
-            icon.className = "fas fa-moon";
+        if (body.classList.contains('light-mode')) {
+          themeIcons.forEach(icon => {
+            icon.className = 'fas fa-moon';
           });
         } else {
-          themeIcons.forEach((icon) => {
-            icon.className = "fas fa-sun";
+          themeIcons.forEach(icon => {
+            icon.className = 'fas fa-sun';
           });
         }
       }
 
-      if (localStorage.getItem("theme") === "light") {
-        body.classList.add("light-mode");
+      if (localStorage.getItem('theme') === 'light') {
+        body.classList.add('light-mode');
         updateThemeIcons();
       }
 
       function toggleTheme() {
-        body.classList.toggle("light-mode");
+        body.classList.toggle('light-mode');
         updateThemeIcons();
         localStorage.setItem(
-          "theme",
-          body.classList.contains("light-mode") ? "light" : "dark"
+          'theme',
+          body.classList.contains('light-mode') ? 'light' : 'dark'
         );
       }
 
-      toggleThemeBtn.addEventListener("click", toggleTheme);
-      toggleThemeBtnSidebar.addEventListener("click", toggleTheme);
+      toggleThemeBtn.addEventListener('click', toggleTheme);
+      toggleThemeBtnSidebar.addEventListener('click', toggleTheme);
 
-      const hamburger = document.querySelector(".hamburger");
-      const sidebar = document.querySelector(".sidebar");
-      const navLinks = document.querySelectorAll(".nav-link[data-section]");
+      const hamburger = document.querySelector('.hamburger');
+      const sidebar = document.querySelector('.sidebar');
+      const navLinks = document.querySelectorAll('.nav-link[data-section]');
 
-      hamburger.addEventListener("click", (e) => {
+      hamburger.addEventListener('click', e => {
         e.stopPropagation();
-        hamburger.classList.toggle("active");
-        sidebar.classList.toggle("active");
+        hamburger.classList.toggle('active');
+        sidebar.classList.toggle('active');
       });
 
-      document.addEventListener("click", (e) => {
+      document.addEventListener('click', e => {
         if (
           !sidebar.contains(e.target) &&
           !hamburger.contains(e.target) &&
-          sidebar.classList.contains("active")
+          sidebar.classList.contains('active')
         ) {
-          hamburger.classList.remove("active");
-          sidebar.classList.remove("active");
+          hamburger.classList.remove('active');
+          sidebar.classList.remove('active');
         }
       });
 
-      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
       const scrollToTopBtnSidebar = document.getElementById(
-        "scrollToTopBtnSidebar"
+        'scrollToTopBtnSidebar'
       );
 
-      window.addEventListener("scroll", () => {
+      window.addEventListener('scroll', () => {
         if (window.pageYOffset > 200) {
-          scrollToTopBtn.classList.add("show");
+          scrollToTopBtn.classList.add('show');
         } else {
-          scrollToTopBtn.classList.remove("show");
+          scrollToTopBtn.classList.remove('show');
         }
       });
 
       function scrollToTop() {
         window.scrollTo({
           top: 0,
-          behavior: "smooth",
+          behavior: 'smooth',
         });
       }
 
-      scrollToTopBtn.addEventListener("click", scrollToTop);
-      scrollToTopBtnSidebar.addEventListener("click", scrollToTop);
+      scrollToTopBtn.addEventListener('click', scrollToTop);
+      scrollToTopBtnSidebar.addEventListener('click', scrollToTop);
 
-      const sections = document.querySelectorAll(".content-section");
+      const sections = document.querySelectorAll('.content-section');
 
       function showSection(sectionId) {
-        sections.forEach((section) => {
+        sections.forEach(section => {
           if (section.id === sectionId) {
-            section.classList.add("active");
+            section.classList.add('active');
           } else {
-            section.classList.remove("active");
+            section.classList.remove('active');
           }
         });
 
-        navLinks.forEach((link) => {
+        navLinks.forEach(link => {
           if (link.dataset.section === sectionId) {
-            link.classList.add("active");
+            link.classList.add('active');
           } else {
-            link.classList.remove("active");
+            link.classList.remove('active');
           }
         });
 
         if (window.innerWidth <= 768) {
-          hamburger.classList.remove("active");
-          sidebar.classList.remove("active");
+          hamburger.classList.remove('active');
+          sidebar.classList.remove('active');
         }
 
         window.scrollTo({
           top: 0,
-          behavior: "smooth",
+          behavior: 'smooth',
         });
       }
 
-      navLinks.forEach((link) => {
-        link.addEventListener("click", (e) => {
+      navLinks.forEach(link => {
+        link.addEventListener('click', e => {
           e.preventDefault();
           const section = link.dataset.section;
           showSection(section);
