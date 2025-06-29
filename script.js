@@ -270,28 +270,25 @@ function initHeroAnimations() {
       heroContent.style.transform = 'translateY(0)';
     }, 200);
   }
-  const delayedText = document.querySelector('.hero h1 .delayed');
-  if (delayedText) {
-    delayedText.style.opacity = '0';
-    delayedText.style.transform = 'translateY(10px)';
+
+  const underlineSvg = document.querySelector('.underline-svg path');
+  if (underlineSvg) {
+    const pathLength = underlineSvg.getTotalLength();
+    
+    const drawLength = pathLength * 0.69;
+    
+    underlineSvg.style.fill = 'none';
+    underlineSvg.style.stroke = 'rgba(255, 59, 63, 0.8)';
+    underlineSvg.style.strokeWidth = '5';
+    underlineSvg.style.strokeLinecap = 'round';
+    underlineSvg.style.strokeDasharray = drawLength + ' ' + pathLength;
+    underlineSvg.style.strokeDashoffset = drawLength;
+    underlineSvg.style.transition = 'none';
+    
     setTimeout(() => {
-      delayedText.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      delayedText.style.opacity = '1';
-      delayedText.style.transform = 'translateY(0)';
-      const underlineSvg = delayedText.querySelector('svg path');
-      if (underlineSvg) {
-        const pathLength = underlineSvg.getTotalLength();
-        underlineSvg.style.strokeDasharray = pathLength;
-        underlineSvg.style.strokeDashoffset = pathLength;
-        underlineSvg.style.stroke = 'currentColor';
-        underlineSvg.style.strokeWidth = '2';
-        underlineSvg.style.fill = 'none';
-        underlineSvg.style.transition = 'stroke-dashoffset 1s ease 0.3s';
-        setTimeout(() => {
-          underlineSvg.style.strokeDashoffset = '0';
-        }, 300);
-      }
-    }, 1200);
+      underlineSvg.style.transition = 'stroke-dashoffset 1s ease-out';
+      underlineSvg.style.strokeDashoffset = '0';
+    }, 400);
   }
 }
 

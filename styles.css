@@ -636,11 +636,12 @@ main {
 .underline-svg {
   position: absolute;
   left: 0;
-  top: 66.67%;
-  height: 0.48em;
+  top: 70%;
+  height: 0.4em;
   width: 100%;
   fill: rgba(255, 59, 63, 0.6);
   pointer-events: none;
+  overflow: visible;  
 }
 
 .hero-subtitle {
