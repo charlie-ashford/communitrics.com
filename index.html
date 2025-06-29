@@ -3,43 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Communitrics</title>
+    <title>Communitrics - Track YouTube Channels in Discord</title>
     <meta
       name="keywords"
-      content="Communitrics, Discord analytics, YouTube analytics, channel statistics, server stats, data tools, analytics platform, stats bot, community analytics, online statistics"
+      content="Communitrics, Discord bot, YouTube tracking, channel milestones, subscriber tracking, Discord analytics, YouTube stats, real-time tracking"
     />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Communitrics",
-        "description": "Communitrics is a Discord bot with an API and analytics platform, primarily for tracking the statistics of YouTube channels.",
+        "description": "Track your favorite YouTube channels in real-time with Communitrics Discord bot. Get notified of milestones and subscriber updates instantly.",
         "url": "https://communitrics.com"
       }
     </script>
     <meta
       name="description"
-      content="Communitrics is a Discord bot with an API and analytics platform, primarily for tracking the statistics of YouTube channels."
+      content="Track your favorite YouTube channels in real-time with Communitrics Discord bot. Get notified of milestones and subscriber updates instantly."
     />
-    <meta name="theme-color" content="#e34831" />
-    <meta property="og:title" content="Communitrics" />
+    <meta name="theme-color" content="#ff3b3f" />
+    <meta
+      property="og:title"
+      content="Communitrics - Track YouTube Channels in Discord"
+    />
     <meta
       property="og:description"
-      content="Communitrics is a Discord bot with an API and analytics platform, primarily for tracking the statistics of YouTube channels."
+      content="Track your favorite YouTube channels in real-time with Communitrics Discord bot. Get notified of milestones and subscriber updates instantly."
     />
     <meta property="og:url" content="https://communitrics.com" />
     <meta property="og:type" content="website" />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Communitrics" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Communitrics" />
+    <meta
+      name="twitter:title"
+      content="Communitrics - Track YouTube Channels in Discord"
+    />
     <meta
       name="twitter:description"
-      content="Communitrics is a Discord bot with an API and analytics platform, primarily for tracking the statistics of YouTube channels."
+      content="Track your favorite YouTube channels in real-time with Communitrics Discord bot. Get notified of milestones and subscriber updates instantly."
     />
     <meta name="twitter:url" content="https://communitrics.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -49,7 +55,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="canonical" href="https://communitrics.com" />
@@ -65,18 +71,22 @@
   <body>
     <header class="header">
       <div class="header-content">
-        <a href="#" class="logo">Communitrics</a>
+        <a href="/" class="logo">
+          <i class="fas fa-chart-line"></i>
+          Communitrics
+        </a>
         <nav class="nav-menu">
-          <a href="#" class="nav-link active" data-section="terms"
-            >Terms of Service</a
-          >
-          <a href="#" class="nav-link" data-section="privacy">Privacy Policy</a>
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#showcase" class="nav-link">Showcase</a>
+          <a href="#features" class="nav-link">Features</a>
           <a
             href="https://communitrics.com/invite"
             target="_blank"
-            class="nav-link btn-invite"
-            >Add Communitrics</a
+            class="btn-invite"
           >
+            <i class="fab fa-discord"></i>
+            Add to Discord
+          </a>
         </nav>
         <div class="hamburger">
           <span></span>
@@ -88,16 +98,17 @@
 
     <div class="sidebar">
       <nav class="nav-menu">
-        <a href="#" class="nav-link active" data-section="terms"
-          >Terms of Service</a
-        >
-        <a href="#" class="nav-link" data-section="privacy">Privacy Policy</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#showcase" class="nav-link">Showcase</a>
+        <a href="#features" class="nav-link">Features</a>
         <a
           href="https://communitrics.com/invite"
           target="_blank"
-          class="nav-link btn-invite"
-          >Add Communitrics</a
+          class="btn-invite"
         >
+          <i class="fab fa-discord"></i>
+          Add to Discord
+        </a>
       </nav>
       <div class="sidebar-buttons">
         <button id="toggleThemeBtnSidebar" aria-label="Toggle theme">
@@ -110,246 +121,258 @@
     </div>
 
     <main>
-      <section id="terms" class="content-section active">
-        <h2>Terms of Service</h2>
-        <div class="info-box">
-          Welcome to Communitrics. By using our services, you agree to comply
-          with and be bound by the following Terms and Conditions.
+      <section class="hero">
+        <div class="hero-background">
+          <div class="hero-gradient"></div>
         </div>
-        <p>
-          By using Communitrics, you agree to abide by these Terms of Service.
-          If you do not agree to these Terms, you are prohibited from using
-          Communitrics or any other services provided by us.
-          <br /><br />
-          We, Communitrics, reserve the right to review and amend any of these
-          Terms of Service at our sole discretion. Upon doing so, we will update
-          this page. Any changes to these Terms of Service will take effect
-          immediately from the date of publication.
-        </p>
-
-        <h3>1. Use of Service</h3>
-        <p>
-          Communitrics is provided "as is" for personal and non-commercial use.
-        </p>
-        <p>You agree not to:</p>
-        <ul>
-          <li>
-            <span class="highlight"
-              >Use our services for any illegal or unauthorized purpose</span
-            >
-          </li>
-          <li>
-            <span class="highlight"
-              >Attempt to copy, modify, distribute, sell, or lease any part of
-              our services</span
-            >
-          </li>
-          <li>
-            <span class="highlight"
-              >Reverse engineer or extract source code from our services</span
-            >
-          </li>
-        </ul>
-
-        <h3>2. Intellectual Property</h3>
-        <p>
-          Communitrics and all related content are protected by copyright and
-          other intellectual property laws. You acknowledge our exclusive
-          ownership of the services.
-        </p>
-
-        <h3>3. Services Changes and Termination</h3>
-        <p>We reserve the right to:</p>
-        <ul>
-          <li>Modify or discontinue any part of our services without notice</li>
-          <li>
-            Terminate your access to our services for any violation of these
-            terms
-          </li>
-        </ul>
-
-        <h3>4. Limitation of Liability</h3>
-        <div class="info-box">
-          <p>
-            Communitrics is not liable for any damages, losses, or harm arising
-            from:
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fab fa-discord"></i>
+            <span>Discord Bot</span>
+          </div>
+          <h1>
+            Track your favorite YouTube channels
+            <span class="underlined-text">
+              in real-time
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 418 42"
+                class="underline-svg"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M203.371.916c-26.013-2.078-76.686 1.963-124.73 9.946L67.3 12.749C35.421 18.062 18.2 21.766 6.004 25.934 1.244 27.561.828 27.778.874 28.61c.07 1.214.828 1.121 9.595-1.176 9.072-2.377 17.15-3.92 39.246-7.496C123.565 7.986 157.869 4.492 195.942 5.046c7.461.108 19.25 1.696 19.17 2.582-.107 1.183-7.874 4.31-25.75 10.366-21.992 7.45-35.43 12.534-36.701 13.884-2.173 2.308-.202 4.407 4.442 4.734 2.654.187 3.263.157 15.593-.78 35.401-2.686 57.944-3.488 88.365-3.143 46.327.526 75.721 2.23 130.788 7.584 19.787 1.924 20.814 1.98 24.557 1.332l.066-.011c1.201-.203 1.53-1.825.399-2.335-2.911-1.31-4.893-1.604-22.048-3.261-57.509-5.556-87.871-7.36-132.059-7.842-23.239-.254-33.617-.116-50.627.674-11.629.54-42.371 2.494-46.696 2.967-2.359.259 8.133-3.625 26.504-9.81 23.239-7.825 27.934-10.149 28.304-14.005.417-4.348-3.529-6-16.878-7.066Z"
+                ></path>
+              </svg>
+            </span>
+          </h1>
+          <p class="hero-subtitle">
+            Communitrics is a Discord bot for real-time tracking of YouTube
+            channel milestones and subscriber updates with detailed analytics.
           </p>
-          <ul>
-            <li>Use of our services</li>
-            <li>Errors or omissions in our services</li>
-            <li>
-              Any interruption or cessation of transmission to or from our
-              services
-            </li>
-          </ul>
-        </div>
-
-        <h3>5. Indemnification</h3>
-        <p>
-          You agree to indemnify and hold Communitrics harmless from any claims,
-          damages, or expenses arising from your use of our services.
-        </p>
-
-        <h3>6. Accuracy of Materials</h3>
-        <p>
-          The materials appearing on our services are not comprehensive and are
-          for general information purposes only. Communitrics does not warrant
-          or make any representations concerning the accuracy, likely results,
-          or reliability of the use of the materials on this website, or
-          otherwise relating to such materials or on any resources linked to our
-          services.
-        </p>
-
-        <h3>7. External Links</h3>
-        <p>
-          Our services may link to external sites that are not operated by us.
-          Please be aware that we have no control over the content and policies
-          of those sites, and cannot accept responsibility or liability for
-          their respective privacy practices.
-        </p>
-
-        <h3>8. Right to Terminate</h3>
-        <p>
-          We may suspend or terminate your right to use our services and
-          terminate these Terms of Service immediately upon written notice to
-          you for any breach of these Terms of Service.
-        </p>
-
-        <h3>9. Governing Law</h3>
-        <p>
-          These Terms of Service are governed by the laws of Australia. Any
-          disputes shall be subject to the exclusive jurisdiction of Australian
-          courts.
-        </p>
-
-        <h3>10. Contact Us</h3>
-        <p>
-          For any questions or concerns regarding these terms, you may contact
-          us through the following means:
-        </p>
-        <ul>
-          <li>
-            Email:
-            <a href="mailto:admin@communitrics.com">admin@communitrics.com</a>
-          </li>
-          <li>
-            Discord:
+          <div class="hero-buttons">
             <a
-              href="https://discord.com/users/1158588351943811142"
+              href="https://communitrics.com/invite"
               target="_blank"
-              >charlieashford</a
+              class="btn-primary"
             >
-          </li>
-        </ul>
+              <i class="fab fa-discord"></i>
+              Add to Discord
+              <span class="btn-shine"></span>
+            </a>
+            <a href="#showcase" class="btn-secondary">
+              <i class="fas fa-play"></i>
+              See It in Action
+            </a>
+          </div>
 
-        <p class="small-text">Effective date: September 04, 2024</p>
-        <p class="small-text">Last updated: September 04, 2024</p>
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-number" data-target="416">0</div>
+              <div class="stat-label">Servers</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number" data-target="7122">0</div>
+              <div class="stat-label">Tracked Channels</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number" data-target="53929533826">0</div>
+              <div class="stat-label">Total Subscribers</div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section id="privacy" class="content-section">
-        <h2>Privacy Policy</h2>
-        <div class="info-box">
-          At Communitrics, we value your privacy. This policy outlines how we
-          collect, use, and protect your information.
+      <section id="how-it-works" class="how-it-works-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>How It Works</h2>
+            <p>Get started in just three simple steps</p>
+          </div>
+          <div class="steps-container">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>Invite Communitrics</h3>
+                <p>
+                  Add the bot to your Discord server with the necessary
+                  permissions for posting updates.
+                </p>
+              </div>
+              <div class="step-icon">
+                <i class="fab fa-discord"></i>
+              </div>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>Track Channels</h3>
+                <p>
+                  Use the /track command followed by any YouTube channel URL,
+                  handle, or channel ID.
+                </p>
+              </div>
+              <div class="step-icon">
+                <i class="fab fa-youtube"></i>
+              </div>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>Receive Updates</h3>
+                <p>
+                  Get real-time notifications with detailed analytics when
+                  milestones are reached.
+                </p>
+              </div>
+              <div class="step-icon">
+                <i class="fas fa-bell"></i>
+              </div>
+            </div>
+          </div>
         </div>
-        <p>
-          In the event our services contain links to third-party sites and
-          services, please be aware that those sites and services have their own
-          privacy policies. After following a link to any third-party content,
-          you should read their posted Privacy Policy information about how they
-          collect and use personal information.
-          <br /><br />
-          This Privacy Policy does not apply to any of your activities after you
-          leave our services.
-        </p>
+      </section>
 
-        <h3>1. Information Collection</h3>
-        <p>We collect two types of information:</p>
-        <ul>
-          <li>
-            <span class="highlight">Voluntarily provided information:</span> any
-            information you knowingly and actively provide us when using our
-            services and promotions.
-          </li>
-          <li>
-            <span class="highlight">Automatically collected information:</span>
-            any information automatically sent by your devices in the course of
-            accessing our services.
-          </li>
-        </ul>
+      <section id="showcase" class="showcase-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>See Communitrics in Action</h2>
+            <p>
+              Beautiful, informative updates delivered right to your Discord
+              server
+            </p>
+          </div>
+          <div class="showcase-grid">
+            <div class="showcase-card">
+              <div class="showcase-image">
+                <img src="https://www.charlieashford.com/images/track.png" />
+              </div>
+              <div class="showcase-content">
+                <h3><i class="fas fa-terminal"></i> Simple Tracking Setup</h3>
+                <p>
+                  Use the intuitive /track command to start monitoring any
+                  YouTube channel instantly
+                </p>
+                <div class="showcase-features">
+                  <span class="feature-tag">Easy Commands</span>
+                  <span class="feature-tag">Auto-complete</span>
+                </div>
+              </div>
+            </div>
 
-        <h3>2. Discord Server Information</h3>
-        <p>When tracking a YouTube channel, we collect:</p>
-        <ul>
-          <li>Your Discord server ID</li>
-          <li>The specified YouTube channel ID</li>
-        </ul>
-        <p>This allows us to send updates to your server as needed.</p>
+            <div class="showcase-card">
+              <div class="showcase-image">
+                <img
+                  src="https://www.charlieashford.com/images/communitrics.png"
+                />
+              </div>
+              <div class="showcase-content">
+                <h3>
+                  <i class="fas fa-trophy"></i> Beautiful Milestone
+                  Notifications
+                </h3>
+                <p>
+                  Receive stunning embed messages when channels reach new
+                  subscriber milestones
+                </p>
+                <div class="showcase-features">
+                  <span class="feature-tag">Rich Embeds</span>
+                  <span class="feature-tag">Custom Styling</span>
+                </div>
+              </div>
+            </div>
 
-        <h3>3. YouTube Channel Data</h3>
-        <p>For tracked YouTube channels, we collect:</p>
-        <ul>
-          <li>Channel ID and name</li>
-          <li>Subscriber count</li>
-        </ul>
-        <p>
-          This data is used to display information and monitor subscriber
-          changes.
-        </p>
-
-        <h3>4. Subscriber Metrics</h3>
-        <p>
-          We calculate subscribers per day, per hour, per minute, and per second
-          using YouTube's data and our own records.
-        </p>
-
-        <h3>5. Data Sharing</h3>
-        <div class="info-box">
-          <p>
-            Communitrics does not sell, rent, or share your personal information
-            with third parties.
-          </p>
+            <div class="showcase-card">
+              <div class="showcase-image">
+                <img src="https://www.charlieashford.com/images/graphs.png" />
+              </div>
+              <div class="showcase-content">
+                <h3>
+                  <i class="fas fa-chart-bar"></i> Comprehensive Analytics
+                </h3>
+                <p>
+                  View detailed statistics including growth rates, average data,
+                  and channel metrics
+                </p>
+                <div class="showcase-features">
+                  <span class="feature-tag">Growth Rates</span>
+                  <span class="feature-tag">Averages Data</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <h3>6. Policy Updates</h3>
-        <p>
-          At our discretion, we may change our Privacy Policy to reflect updates
-          to our business processes, current acceptable practices, or
-          legislative/regulatory changes. If we change this Privacy Policy, we
-          will post the changes here at the same link by which you are accessing
-          this Privacy Policy.
-          <br /><br />
-          If required by law, we will get your permission or give you the
-          opportunity to opt in to or opt out of, as applicable, any new uses of
-          your personal information.
-        </p>
+      <section id="features" class="features-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Powerful Features</h2>
+            <p>Everything you need to track YouTube channels effectively</p>
+          </div>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <h3>Real-Time Updates</h3>
+              <p>
+                Get instant notifications when your tracked channels hit new
+                milestones or subscriber counts with lightning-fast updates.
+              </p>
+              <div class="feature-highlight">Instant notifications</div>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h3>Detailed Analytics</h3>
+              <p>
+                View comprehensive stats including growth rates, time between
+                milestones, daily averages, and historical data.
+              </p>
+              <div class="feature-highlight">Growth insights</div>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-magic"></i>
+              </div>
+              <h3>Easy Setup</h3>
+              <p>
+                Simply use the /track command with any YouTube channel and start
+                receiving beautifully formatted updates immediately.
+              </p>
+              <div class="feature-highlight">One command setup</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <h3>7. Data Retention</h3>
-        <p>
-          We will retain your personal information only for as long as is
-          necessary for the purposes set out in this Privacy Policy, unless a
-          longer retention period is required or permitted by law.
-        </p>
-
-        <h3>8. Contact Us</h3>
-        <p>For privacy concerns or questions, reach out to us at:</p>
-        <ul>
-          <li>
-            Email:
-            <a href="mailto:admin@communitrics.com">admin@communitrics.com</a>
-          </li>
-          <li>
-            Discord:
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-content">
+            <h2>Ready to Start Tracking?</h2>
+            <p>
+              Join 400+ Discord servers already using Communitrics to track
+              their favorite creators and never miss a milestone again.
+            </p>
             <a
-              href="https://discord.com/users/1158588351943811142"
+              href="https://communitrics.com/invite"
               target="_blank"
-              >charlieashford</a
+              class="btn-primary large"
             >
-          </li>
-        </ul>
-
-        <p class="small-text">Effective date: September 04, 2024</p>
-        <p class="small-text">Last updated: September 04, 2024</p>
+              <i class="fab fa-discord"></i>
+              Add Communitrics to Discord
+              <span class="btn-shine"></span>
+            </a>
+            <div class="cta-note">
+              <i class="fas fa-shield-alt"></i>
+              <span>Free forever • Instant setup • Always online</span>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
@@ -362,13 +385,57 @@
     </button>
 
     <footer>
-      <p>
-        &copy; 2025
-        <a href="https://communitrics.com/invite" class="footer-link"
-          >Communitrics</a
-        >. All rights reserved.
-      </p>
+      <div class="footer-content">
+        <div class="footer-main">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <i class="fas fa-chart-line"></i>
+              <span>Communitrics</span>
+            </div>
+            <p>
+              Track YouTube channels in real-time with powerful Discord
+              integration.
+            </p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4>Product</h4>
+              <a href="#features">Features</a>
+              <a href="https://communitrics.com/invite" target="_blank"
+                >Add to Discord</a
+              >
+            </div>
+            <div class="footer-section">
+              <h4>Legal</h4>
+              <a href="/terms">Terms of Service</a>
+              <a href="/privacy">Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+              <h4>Support</h4>
+              <a href="mailto:admin@communitrics.com">Contact Us</a>
+              <a
+                href="https://discord.com/users/1158588351943811142"
+                target="_blank"
+                >Discord Support</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Communitrics. All rights reserved.</p>
+          <div class="footer-social">
+            <a
+              href="https://communitrics.com/invite"
+              target="_blank"
+              aria-label="Discord"
+            >
+              <i class="fab fa-discord"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
