@@ -292,6 +292,32 @@ function initHeroAnimations() {
   }
 }
 
+function initLegalPageAnimations() {
+  const legalPage = document.querySelector('.legal-page');
+  const legalContent = document.querySelector('.legal-content');
+  const legalHeader = document.querySelector('.legal-header');
+    
+  if (legalContent && legalHeader) {
+    legalPage.classList.add('loaded');
+    legalHeader.style.opacity = '0';
+    legalHeader.style.transform = 'translateY(20px)';
+    legalContent.style.opacity = '0';
+    legalContent.style.transform = 'translateY(30px)';
+    
+    setTimeout(() => {
+      legalHeader.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      legalHeader.style.opacity = '1';
+      legalHeader.style.transform = 'translateY(0)';
+      
+      setTimeout(() => {
+        legalContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        legalContent.style.opacity = '1';
+        legalContent.style.transform = 'translateY(0)';
+      }, 200);
+    }, 100);
+  }
+}
+
 function initStatsAnimation() {
   const heroStats = document.querySelector('.hero-stats');
   if (!heroStats) return;
@@ -407,6 +433,7 @@ function handleReducedMotion() {
 document.addEventListener('DOMContentLoaded', () => {
   updateSidebarHTML();
   initHeroAnimations();
+  initLegalPageAnimations();
   initStatsAnimation();
   initScrollAnimations();
   initHeaderScrollEffect();
