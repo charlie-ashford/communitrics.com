@@ -274,9 +274,9 @@ function initHeroAnimations() {
   const underlineSvg = document.querySelector('.underline-svg path');
   if (underlineSvg) {
     const pathLength = underlineSvg.getTotalLength();
-    
+
     const drawLength = pathLength * 0.69;
-    
+
     underlineSvg.style.fill = 'none';
     underlineSvg.style.stroke = 'rgba(255, 59, 63, 0.8)';
     underlineSvg.style.strokeWidth = '5';
@@ -284,7 +284,7 @@ function initHeroAnimations() {
     underlineSvg.style.strokeDasharray = drawLength + ' ' + pathLength;
     underlineSvg.style.strokeDashoffset = drawLength;
     underlineSvg.style.transition = 'none';
-    
+
     setTimeout(() => {
       underlineSvg.style.transition = 'stroke-dashoffset 1s ease-out';
       underlineSvg.style.strokeDashoffset = '0';
@@ -296,21 +296,22 @@ function initLegalPageAnimations() {
   const legalPage = document.querySelector('.legal-page');
   const legalContent = document.querySelector('.legal-content');
   const legalHeader = document.querySelector('.legal-header');
-    
+
   if (legalContent && legalHeader) {
     legalPage.classList.add('loaded');
     legalHeader.style.opacity = '0';
     legalHeader.style.transform = 'translateY(20px)';
     legalContent.style.opacity = '0';
     legalContent.style.transform = 'translateY(30px)';
-    
+
     setTimeout(() => {
       legalHeader.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       legalHeader.style.opacity = '1';
       legalHeader.style.transform = 'translateY(0)';
-      
+
       setTimeout(() => {
-        legalContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        legalContent.style.transition =
+          'opacity 0.8s ease, transform 0.8s ease';
         legalContent.style.opacity = '1';
         legalContent.style.transform = 'translateY(0)';
       }, 200);

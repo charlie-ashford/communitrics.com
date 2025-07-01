@@ -1144,6 +1144,16 @@ main {
   color: var(--text-muted-light);
 }
 
+.cta-content a[href*='charlieashford.com']:hover {
+  opacity: 1 !important;
+  color: var(--primary-color) !important;
+  transform: translateX(4px);
+}
+
+.light-mode .cta-content a[href*='charlieashford.com'] {
+  color: var(--text-muted-light) !important;
+}
+
 .cta-note {
   display: flex;
   align-items: center;
@@ -1300,6 +1310,36 @@ footer {
 .footer-social a:hover {
   background: var(--primary-color);
   color: white;
+}
+
+.disclaimer {
+  background: rgba(255, 59, 63, 0.05);
+  border: 1px solid rgba(255, 59, 63, 0.15);
+  border-radius: var(--border-radius);
+  padding: 16px 24px;
+  margin: 32px auto;
+  max-width: 600px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.disclaimer p {
+  color: var(--text-muted-dark);
+  font-size: 0.9rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.light-mode .disclaimer p {
+  color: var(--text-muted-light);
+}
+
+.disclaimer i {
+  color: var(--primary-color);
+  font-size: 1rem;
 }
 
 .legal-page {
@@ -1697,6 +1737,22 @@ a:focus {
     grid-template-columns: 1fr;
     gap: 24px;
     text-align: center;
+  }
+
+  .disclaimer {
+    margin: 24px 8px;
+    padding: 12px 16px;
+  }
+
+  .disclaimer p {
+    font-size: 0.85rem;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .creator-link {
+    font-size: 0.85rem;
+    padding: 6px 12px;
   }
 
   .legal-content {
