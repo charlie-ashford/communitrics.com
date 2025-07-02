@@ -8,5 +8,12 @@
       "source": "/privacy",
       "destination": "/privacy.html"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/invite",
+      "destination": "https://discord.com/oauth2/authorize?client_id=1198800543448055928",
+      "permanent": true
+    }
   ]
 }
