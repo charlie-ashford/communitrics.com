@@ -336,7 +336,7 @@ function initStatsAnimation() {
           heroStats.style.opacity = '1';
           heroStats.style.transform = 'translateY(0)';
           elems.forEach((el, i) => {
-            animateCounter(el, values[i], 2_500);
+            animateCounter(el, values[i], 2_000);
           });
           statsObserver.unobserve(entry.target);
         }
