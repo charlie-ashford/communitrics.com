@@ -228,7 +228,7 @@ function animateCounter(element, target, duration = 2_000) {
   }, 16);
 }
 
-async function loadStatsWithRetry(maxRetries = 3) {
+async function loadStats(maxRetries = 3) {
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
       const res = await fetch('https://api.communitrics.com/total-stats', {
@@ -326,7 +326,7 @@ function initStatsAnimation() {
     async entries => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
-          const statsData = await loadStatsWithRetry();
+          const statsData = await loadStats();
           const elems = document.querySelectorAll('.stat-number');
           const values = [
             statsData.servers,
@@ -336,7 +336,7 @@ function initStatsAnimation() {
           heroStats.style.opacity = '1';
           heroStats.style.transform = 'translateY(0)';
           elems.forEach((el, i) => {
-            setTimeout(() => animateCounter(el, values[i], 2_500), i * 300);
+            animateCounter(el, values[i], 2_500);
           });
           statsObserver.unobserve(entry.target);
         }
